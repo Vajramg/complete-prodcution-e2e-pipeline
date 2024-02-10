@@ -13,16 +13,3 @@ vvpipeline{
             }
         }
     }
-
-    stages{
-        stage("Checkout from SCM"){
-            steps{
-                git branch: 'main',credentialId: 'github', url: 'https://github.com/Vajramg/complete-prodcution-e2e-pipeline'
-            }
-
-        }
-    }
-}
-
-ABC
-vcvcxvx
