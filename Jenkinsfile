@@ -22,14 +22,4 @@ pipeline{
 
         }
     }
-}
-}
-
-Jenkins file updated
-
-updated
-
-updated nowfgfdgdfdsfdsfsdfsdfvcxvcxvcxv
-
-sdxsadsad
-xzcxzczx                
+}           sdsad           dfdsfsdfdfgsdfsdf
