@@ -18,6 +18,6 @@ pipeline{
             steps {
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/vajramg/complete-prodcution-e2e-pipeline'
             }
-
         }
     }
+}
