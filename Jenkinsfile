@@ -7,4 +7,5 @@ pipeline{
         maven 'Maven3'
     }
     
+  }
 }
