@@ -1,24 +1,13 @@
-pipeline{
-    agent{
-        label "Jenkins-Agent"
-    }
-    tools {
-     jdk 'java17'
-     maven 'Maven3'
-     }
-    stages{
-        stage("Cleanup Workspace"){
-            steps{
-                cleanWs{}
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello1') {
+            steps {
+                echo 'Hello World'
             }
         }
     }
+}
 
-    stages{
-        stage("Checkout from SCM"){
-            steps{
-                git branch: 'main',credentialId: 'github', url: 'https://github.com/Vajramg/complete-prodcution-e2e-pipeline'
-            }
-
-        }
-    }                   
+}
