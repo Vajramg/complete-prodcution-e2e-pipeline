@@ -25,4 +25,5 @@ stage ("Building Application"){
         sh 'mvn clean package'
      }
    }
+ }
 }
