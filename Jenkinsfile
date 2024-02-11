@@ -24,6 +24,12 @@ stage ("Building Application"){
     steps{
         sh 'mvn clean package'
      }
+ }
+
+stage ("Test Applicaton"){
+    steps{
+        sh 'mvn test'
+     }
    }
  }
 }
