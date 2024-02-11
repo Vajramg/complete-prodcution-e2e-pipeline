@@ -1,9 +1,11 @@
-pipeline{
-    agent{
-        label "Jenkins-Agent"
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
     }
-    tools {
-     jdk 'java17'
-     maven 'Maven3'
-     }
 }
