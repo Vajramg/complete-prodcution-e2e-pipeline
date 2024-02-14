@@ -11,7 +11,7 @@ pipeline {
             Docker_pass= "dockerhub"
             Image_Name= "${Docker_User}" + "/" + "${App_Name}"
             Image_Tag= "${Release}-${Build Number}"
-            Jenkins_API_Token= "credentials("Jenkins_API_Token)"
+            Jenkins_API_Token= "credentials("Jenkins_API_Token")
 
         }
     }
@@ -62,7 +62,6 @@ pipeline {
                 }
 
                 }
-           
             }
         }
     }
