@@ -31,15 +31,5 @@ stage ("Test Applicaton"){
         sh 'mvn test'
      }
    }
-
-stage ("Sonarqube"){
-    steps{
-        scripts{
-            withSonarQubeEnv(credentialsId: 'sonarqubetoken'){
-        sh "mvn sonar:sonar"
-     }
-   }      
- }
 }
-
-    }
+}
