@@ -36,9 +36,13 @@ pipeline {
                 }
             }
         }
-    }
-}
-
-stage("Sonarqube Analysis") {
+     stage("Quality Gate") {
             steps {
-                sh 'mvn package'        
+              script {
+                waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token'
+              }
+            }
+        }
+    }
+}  
+
