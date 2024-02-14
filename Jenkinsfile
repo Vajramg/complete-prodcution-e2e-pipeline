@@ -5,7 +5,7 @@ pipeline {
     environment {
         App_Name = "complete-prodcution-e2e-pipeline"
         Docker_User = "vajramg"
-        Docker_Pass = credentials("DockerHub_Credentials_ID")
+        Docker_Pass = credentials("dockerhub")
         Image_Name = "${Docker_User}/${App_Name}"
         Image_Tag = "${env.Release}-${env.BUILD_NUMBER}"
         Jenkins_API_Token = credentials("Jenkins_API_Token")
