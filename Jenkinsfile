@@ -37,7 +37,7 @@ stage ("Test Applicaton"){
 stage("Sonarqube Analysis") {
   steps{
       script {
-          withSonarQubeEnv(CredentialsId: 'sonarqube-token') {
+          withSonarQubeEnv(credentialsId: 'sonarqube-token') {
       sh 'mvn sonar:sonar'
           }
       }
