@@ -40,6 +40,3 @@ stage ("Sonarqube"){
      }
    }      
  }
-    
-}
-    }
