@@ -8,7 +8,6 @@ pipeline {
         Docker_Pass = credentials("dockerhub")
         Image_Name = "${Docker_User}/${App_Name}"
         Image_Tag = "${env.Release}-${env.BUILD_NUMBER}"
-        Jenkins_API_Token = credentials("Jenkins_API_Token")
     }
     tools {
         jdk 'Java17'
