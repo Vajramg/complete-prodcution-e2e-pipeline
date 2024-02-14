@@ -59,7 +59,7 @@ pipeline {
                 docker.withRegistry('', Docker_Pass){
                     docker_image.push("${Image_Tag}")
                         docker_image.push('latest')
-                }
+                    }
 
                 }
             }
