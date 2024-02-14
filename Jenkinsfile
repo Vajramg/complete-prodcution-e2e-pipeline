@@ -41,3 +41,4 @@ pipeline {
 
 stage("Sonarqube Analysis") {
             steps {
+                sh 'mvn package'        
