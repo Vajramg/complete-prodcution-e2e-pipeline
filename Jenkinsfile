@@ -31,8 +31,6 @@ stage ("Test Applicaton"){
         sh 'mvn test'
      }
    }
-}
-}
 
 stage("Sonarqube Analysis") {
    steps{
@@ -43,4 +41,3 @@ stage("Sonarqube Analysis") {
       }
   }
 }        
-}
