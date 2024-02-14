@@ -28,6 +28,14 @@ stage ("Building Application"){
 
 stage ("Test Applicaton"){
     steps{
+        scripts{
+            WithsonarQubeEnv{credentialId: 'sonarqubetoken'){
+        sh "mvn sonar:sonar"
+     }
+   }
+        
+stage ("Sonarqube Analysis"){
+    steps{
         sh 'mvn test'
      }
    }
