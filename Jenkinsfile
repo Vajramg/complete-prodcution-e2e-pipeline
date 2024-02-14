@@ -30,8 +30,9 @@ stage ("Test Applicaton"){
     steps{
         sh 'mvn test'
      }
+    
    }
-
+        
 stage("Sonarqube Analysis") {
    steps{
       script {
