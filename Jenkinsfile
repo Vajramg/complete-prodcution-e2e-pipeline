@@ -2,18 +2,17 @@ pipeline {
     agent {
         label "Jenkins-Agent"
     }
+    environment {
+        App_Name = "complete-prodcution-e2e-pipeline"
+        Docker_User = "vajramg"
+        Docker_Pass = credentials("DockerHub_Credentials_ID")
+        Image_Name = "${Docker_User}/${App_Name}"
+        Image_Tag = "${env.Release}-${env.BUILD_NUMBER}"
+        Jenkins_API_Token = credentials("Jenkins_API_Token")
+    }
     tools {
         jdk 'Java17'
         maven 'Maven3'
-        environment= {
-            App_Name= "complete-prodcution-e2e-pipeline"
-            Docker_User= "vajramg"
-            Docker_pass= "dockerhub"
-            Image_Name= "${Docker_User}" + "/" + "${App_Name}"
-            Image_Tag= "${Release}-${Build Number}"
-            Jenkins_API_Token= "credentials("Jenkins_API_Token")
-
-        }
     }
     stages {
         stage("Cleanup Workspace") {
@@ -45,24 +44,22 @@ pipeline {
                 }
             }
         }
-     stage("Quality Gate") {
-            steps {
-              script {
-                waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token'
-              }
-            }
-        }
-
-    stage("Build Docker and Push Image") {
+        stage("Quality Gate") {
             steps {
                 script {
-                docker.withRegistry('', Docker_Pass){
-                    docker_image.push("${Image_Tag}")
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token'
+                }
+            }
+        }
+        stage("Build Docker and Push Image") {
+            steps {
+                script {
+                    docker.withRegistry('', Docker_Pass) {
+                        docker_image.push("${Image_Tag}")
                         docker_image.push('latest')
                     }
-
                 }
             }
         }
     }
-}  
+}
