@@ -5,7 +5,7 @@ pipeline {
     environment {
         App_Name = "complete-prodcution-e2e-pipeline"
         Docker_User = "vajramg"
-        Docker_Pass = credentials("dockerhub")
+        Docker_Pass = 'dockerhub'
         Image_Name = "${Docker_User}/${App_Name}"
         Image_Tag = "${env.Release}-${env.BUILD_NUMBER}"
     }
