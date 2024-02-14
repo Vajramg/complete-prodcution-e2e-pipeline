@@ -34,8 +34,7 @@ stage ("Test Applicaton"){
 }
 }
 
-stages {
-        stage("Sonarqube Analysis") {
+stage("Sonarqube Analysis") {
             steps {
                 script {
                     withSonarQubeEnv(credentialsId: 'sonarqube-token') {
